@@ -1,0 +1,15 @@
+:host {
+    --slds-c-card-color-background: rgb(216, 50, 50);
+}
+ 
+.transfer{
+    --slds-c-card-color-background: rgb(241, 222, 53);
+}
+
+.inbound{
+    --slds-c-card-color-background: rgb(50, 184, 38);
+}
+
+.outbound{
+    --slds-c-card-color-background: rgb(53 197 241);
+}
