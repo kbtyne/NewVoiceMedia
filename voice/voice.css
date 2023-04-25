@@ -1,15 +1,15 @@
-:host {
-    --slds-c-card-color-background: rgb(216, 50, 50);
+.transfer {
+    --sds-c-card-color-background: rgb(243, 73, 73);
 }
  
-.transfer{
-    --slds-c-card-color-background: rgb(241, 222, 53);
+.callback{
+    --sds-c-card-color-background: #f4f44b;
 }
 
 .inbound{
-    --slds-c-card-color-background: rgb(50, 184, 38);
+    --sds-c-card-color-background: rgb(63, 187, 63);
 }
 
 .outbound{
-    --slds-c-card-color-background: rgb(53 197 241);
+    --sds-c-card-color-background: rgb(98, 150, 255);
 }
