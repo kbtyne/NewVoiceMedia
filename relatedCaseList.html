@@ -1,0 +1,13 @@
+<template>
+	<lightning-card  title="Related Cases">
+            <div style="height: 500px;">
+            <template if:true={caseList}>
+                 <lightning-datatable
+                         key-field="id"
+                         data={caseList}
+                         columns={columns}>
+                 </lightning-datatable>
+            </template>
+            </div>
+    </lightning-card>
+</template>

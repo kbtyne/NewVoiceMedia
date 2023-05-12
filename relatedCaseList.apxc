@@ -1,0 +1,6 @@
+public with sharing class getRecordDataController {
+ @AuraEnabled(cacheable=true)
+  public static List<Case> getCases() {
+  return [SELECT Id FROM Case WHERE Id=0300213448 limit 10];
+  }
+}
