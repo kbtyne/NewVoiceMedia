@@ -1,0 +1,25 @@
+<!-- /**
+ * @description       : Lightning web component to display existing Cases by Serial Number
+ * @author            : kendra@snowytree.com
+ * @last modified on  : 05-25-2023
+ * @last modified by  : kendra@snowytree.com
+ * Modifications Log 
+ * Ver   Date         Author                  Modification
+ * 1.0   05-25-2023   kendra@snowytree.com   Initial Version
+**/ -->
+
+<template>
+	<lightning-card  title="Existing Cases" icon-name="standard:case">
+            <div class="slds-p-horizontal_small">
+                <div if:true={data}>
+                 <lightning-datatable hide-checkbox-column="true"
+                         key-field="id"
+                         data={data}
+                         columns={columns}
+                         show-row-number-column="true" onrowaction={callRowAction}
+                         >
+                 </lightning-datatable>
+                </div>
+            </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,22 @@
+/**
+ * @description       : Apex controlling class for Lightning web component to display existing Cases by Serial Number
+ * @author            : kendra@snowytree.com
+ * @last modified on  : 05-25-2023
+ * @last modified by  : kendra@snowytree.com
+ * Modifications Log 
+ * Ver   Date         Author                  Modification
+ * 1.0   05-25-2023   kendra@snowytree.com   Initial Version
+**/
+
+public with sharing class getRecordDataController {
+ @AuraEnabled(cacheable=true)
+  public static List<Case> getCases(String serialNumber, Id recordId) {
+      return [
+          SELECT Id, CaseNumber, Status, CreatedDate, Date_Received__c, Contact_Text__c, Origin, Case_Region__c, Subject, Description, Level__c, Priority, SerialNumber__c
+          FROM Case 
+          WHERE SerialNumber__c = :serialNumber AND SerialNumber__c !=null AND Id != :recordId
+          ORDER BY CreatedDate DESC
+          LIMIT 10
+      ];
+  	}
+}
