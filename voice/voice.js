@@ -1,20 +1,29 @@
 import { LightningElement, api, wire } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+
 import VOICECALL_OBJECT from '@salesforce/schema/VoiceCall';
 import CALLTYPE_FIELD from '@salesforce/schema/VoiceCall.CallType';
-
+import DISPLAY_TO_AGENT_FIELD from '@salesforce/schema/VoiceCall.Display_to_Agent__c';
 
 export default class voice extends LightningElement {
     @api recordId;
     voicecallObject = VOICECALL_OBJECT;
-    @wire(getRecord, {  
+
+    @wire(getRecord, {
         recordId: '$recordId', 
-        fields: [CALLTYPE_FIELD],}
-    ) record;
+        fields: [CALLTYPE_FIELD, DISPLAY_TO_AGENT_FIELD]})
+    record;
 
     get calltype() {
-          return this.record.data ? getFieldValue(this.record.data, CALLTYPE_FIELD) : ' '
-          ;
+          return this.record.data ? getFieldValue(this.record.data, CALLTYPE_FIELD) : ' ' ;
+    }
+   
+    get displaytext(){
+        return this.record.data ? getFieldValue(this.record.data, DISPLAY_TO_AGENT_FIELD) : ' ' ;
+    }
+
+    get titletext() {
+        return `${this.calltype} ${this.displaytext}`
     }
 
     get styleClass(){
@@ -31,3 +40,4 @@ export default class voice extends LightningElement {
         return styleClass;
      }
 }
+
